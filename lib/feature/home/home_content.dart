@@ -107,12 +107,8 @@ class _HomeContentState extends State<HomeContent> {
                     },
                     options: CarouselOptions(
                       autoPlay: true,
-                      enableInfiniteScroll: true,
-                      autoPlayInterval: const Duration(seconds: 3),
-                      autoPlayAnimationDuration:
-                          const Duration(microseconds: 500),
-                      pauseAutoPlayOnTouch: true,
-                      viewportFraction: 0.8,
+                      aspectRatio: 2.0,
+                      autoPlayInterval: const Duration(seconds: 5),
                       enlargeCenterPage: true,
                     )),
               )
