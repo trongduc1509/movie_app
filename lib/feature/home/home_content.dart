@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
@@ -79,7 +81,7 @@ class _HomeContentState extends State<HomeContent> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: CarouselSlider.builder(
                     itemCount: moviesList.length,
                     itemBuilder:
@@ -93,8 +95,10 @@ class _HomeContentState extends State<HomeContent> {
                             height: MediaQuery.of(context).size.height / 3,
                             width: MediaQuery.of(context).size.width,
                             fit: BoxFit.cover,
-                            placeholder: (context, url) =>
-                                const CupertinoActivityIndicator(),
+                            placeholder: (context, url) => Center(
+                                child: (Platform.isAndroid)
+                                    ? const CircularProgressIndicator()
+                                    : const CupertinoActivityIndicator()),
                             errorWidget: (context, url, error) => Container(
                               decoration: const BoxDecoration(
                                   image: DecorationImage(
