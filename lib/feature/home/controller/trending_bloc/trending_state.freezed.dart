@@ -17,7 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$TrendingState {
   bool get isLoading => throw _privateConstructorUsedError;
-  List<TrendingItemModel>? get trendItems => throw _privateConstructorUsedError;
+  TrendingType get trendingType => throw _privateConstructorUsedError;
+  TrendingMoviesModel? get trendMovies => throw _privateConstructorUsedError;
+  TrendingTVsModel? get trendTVs => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TrendingStateCopyWith<TrendingState> get copyWith =>
@@ -29,7 +31,11 @@ abstract class $TrendingStateCopyWith<$Res> {
   factory $TrendingStateCopyWith(
           TrendingState value, $Res Function(TrendingState) then) =
       _$TrendingStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading, List<TrendingItemModel>? trendItems});
+  $Res call(
+      {bool isLoading,
+      TrendingType trendingType,
+      TrendingMoviesModel? trendMovies,
+      TrendingTVsModel? trendTVs});
 }
 
 /// @nodoc
@@ -44,17 +50,27 @@ class _$TrendingStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
-    Object? trendItems = freezed,
+    Object? trendingType = freezed,
+    Object? trendMovies = freezed,
+    Object? trendTVs = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      trendItems: trendItems == freezed
-          ? _value.trendItems
-          : trendItems // ignore: cast_nullable_to_non_nullable
-              as List<TrendingItemModel>?,
+      trendingType: trendingType == freezed
+          ? _value.trendingType
+          : trendingType // ignore: cast_nullable_to_non_nullable
+              as TrendingType,
+      trendMovies: trendMovies == freezed
+          ? _value.trendMovies
+          : trendMovies // ignore: cast_nullable_to_non_nullable
+              as TrendingMoviesModel?,
+      trendTVs: trendTVs == freezed
+          ? _value.trendTVs
+          : trendTVs // ignore: cast_nullable_to_non_nullable
+              as TrendingTVsModel?,
     ));
   }
 }
@@ -66,7 +82,11 @@ abstract class _$$_TrendingStateCopyWith<$Res>
           _$_TrendingState value, $Res Function(_$_TrendingState) then) =
       __$$_TrendingStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading, List<TrendingItemModel>? trendItems});
+  $Res call(
+      {bool isLoading,
+      TrendingType trendingType,
+      TrendingMoviesModel? trendMovies,
+      TrendingTVsModel? trendTVs});
 }
 
 /// @nodoc
@@ -83,17 +103,27 @@ class __$$_TrendingStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
-    Object? trendItems = freezed,
+    Object? trendingType = freezed,
+    Object? trendMovies = freezed,
+    Object? trendTVs = freezed,
   }) {
     return _then(_$_TrendingState(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      trendItems: trendItems == freezed
-          ? _value._trendItems
-          : trendItems // ignore: cast_nullable_to_non_nullable
-              as List<TrendingItemModel>?,
+      trendingType: trendingType == freezed
+          ? _value.trendingType
+          : trendingType // ignore: cast_nullable_to_non_nullable
+              as TrendingType,
+      trendMovies: trendMovies == freezed
+          ? _value.trendMovies
+          : trendMovies // ignore: cast_nullable_to_non_nullable
+              as TrendingMoviesModel?,
+      trendTVs: trendTVs == freezed
+          ? _value.trendTVs
+          : trendTVs // ignore: cast_nullable_to_non_nullable
+              as TrendingTVsModel?,
     ));
   }
 }
@@ -102,25 +132,26 @@ class __$$_TrendingStateCopyWithImpl<$Res>
 
 class _$_TrendingState extends _TrendingState {
   const _$_TrendingState(
-      {this.isLoading = false, final List<TrendingItemModel>? trendItems})
-      : _trendItems = trendItems,
-        super._();
+      {this.isLoading = false,
+      this.trendingType = TrendingType.movie,
+      this.trendMovies,
+      this.trendTVs})
+      : super._();
 
   @override
   @JsonKey()
   final bool isLoading;
-  final List<TrendingItemModel>? _trendItems;
   @override
-  List<TrendingItemModel>? get trendItems {
-    final value = _trendItems;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  @JsonKey()
+  final TrendingType trendingType;
+  @override
+  final TrendingMoviesModel? trendMovies;
+  @override
+  final TrendingTVsModel? trendTVs;
 
   @override
   String toString() {
-    return 'TrendingState(isLoading: $isLoading, trendItems: $trendItems)';
+    return 'TrendingState(isLoading: $isLoading, trendingType: $trendingType, trendMovies: $trendMovies, trendTVs: $trendTVs)';
   }
 
   @override
@@ -130,14 +161,19 @@ class _$_TrendingState extends _TrendingState {
             other is _$_TrendingState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
-                .equals(other._trendItems, _trendItems));
+                .equals(other.trendingType, trendingType) &&
+            const DeepCollectionEquality()
+                .equals(other.trendMovies, trendMovies) &&
+            const DeepCollectionEquality().equals(other.trendTVs, trendTVs));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(_trendItems));
+      const DeepCollectionEquality().hash(trendingType),
+      const DeepCollectionEquality().hash(trendMovies),
+      const DeepCollectionEquality().hash(trendTVs));
 
   @JsonKey(ignore: true)
   @override
@@ -148,13 +184,19 @@ class _$_TrendingState extends _TrendingState {
 abstract class _TrendingState extends TrendingState {
   const factory _TrendingState(
       {final bool isLoading,
-      final List<TrendingItemModel>? trendItems}) = _$_TrendingState;
+      final TrendingType trendingType,
+      final TrendingMoviesModel? trendMovies,
+      final TrendingTVsModel? trendTVs}) = _$_TrendingState;
   const _TrendingState._() : super._();
 
   @override
   bool get isLoading;
   @override
-  List<TrendingItemModel>? get trendItems;
+  TrendingType get trendingType;
+  @override
+  TrendingMoviesModel? get trendMovies;
+  @override
+  TrendingTVsModel? get trendTVs;
   @override
   @JsonKey(ignore: true)
   _$$_TrendingStateCopyWith<_$_TrendingState> get copyWith =>

@@ -2,4 +2,6 @@ class TrendingEvent {
   const TrendingEvent();
 }
 
-class TrendingItemsEvent extends TrendingEvent {}
+class TrendingMoviesEvent extends TrendingEvent {}
+
+class TrendingTVsEvent extends TrendingEvent {}

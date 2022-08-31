@@ -1,0 +1,1 @@
+enum TrendingType { movie, tv }
