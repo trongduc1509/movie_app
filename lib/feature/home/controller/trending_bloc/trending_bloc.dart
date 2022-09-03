@@ -13,6 +13,12 @@ class TrendingBloc extends Bloc<TrendingEvent, TrendingState> {
   TrendingBloc(TrendingState initialState) : super(initialState) {
     on<TrendingMoviesEvent>(trendingMoviesListEvent);
     on<TrendingTVsEvent>(trendingTVsListEvent);
+
+    if (initialState.trendingType == TrendingType.movie) {
+      add(TrendingMoviesEvent());
+    } else if (initialState.trendingType == TrendingType.tv) {
+      add(TrendingTVsEvent());
+    }
   }
 
   Future<void> trendingMoviesListEvent(TrendingMoviesEvent event, emit) async {

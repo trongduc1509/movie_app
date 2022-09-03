@@ -45,6 +45,7 @@ dependencies:
   sample_exception: ^1.0.2
   flutter_bloc: ^8.1.1
   alice: ^0.2.5
+  shimmer: ^2.0.0
 
 dependency_overrides:
   flutter_local_notifications: 9.7.1

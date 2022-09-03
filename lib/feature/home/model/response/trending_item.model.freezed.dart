@@ -30,6 +30,8 @@ mixin _$TrendingItemModel {
   String? get originalLanguage => throw _privateConstructorUsedError;
   @JsonKey(name: 'original_title')
   String? get originalTitle => throw _privateConstructorUsedError;
+  @JsonKey(name: 'original_name')
+  String? get originalName => throw _privateConstructorUsedError;
   @JsonKey(name: 'overview')
   String? get overview => throw _privateConstructorUsedError;
   @JsonKey(name: 'popularity')
@@ -44,6 +46,8 @@ mixin _$TrendingItemModel {
   DateTime? get firstAirDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'title')
   String? get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'video')
   bool? get video => throw _privateConstructorUsedError;
   @JsonKey(name: 'vote_count')
@@ -73,6 +77,8 @@ abstract class $TrendingItemModelCopyWith<$Res> {
           String? originalLanguage,
       @JsonKey(name: 'original_title')
           String? originalTitle,
+      @JsonKey(name: 'original_name')
+          String? originalName,
       @JsonKey(name: 'overview')
           String? overview,
       @JsonKey(name: 'popularity')
@@ -87,6 +93,8 @@ abstract class $TrendingItemModelCopyWith<$Res> {
           DateTime? firstAirDate,
       @JsonKey(name: 'title')
           String? title,
+      @JsonKey(name: 'name')
+          String? name,
       @JsonKey(name: 'video')
           bool? video,
       @JsonKey(name: 'vote_count')
@@ -111,6 +119,7 @@ class _$TrendingItemModelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? originalLanguage = freezed,
     Object? originalTitle = freezed,
+    Object? originalName = freezed,
     Object? overview = freezed,
     Object? popularity = freezed,
     Object? posterPath = freezed,
@@ -118,6 +127,7 @@ class _$TrendingItemModelCopyWithImpl<$Res>
     Object? releaseDate = freezed,
     Object? firstAirDate = freezed,
     Object? title = freezed,
+    Object? name = freezed,
     Object? video = freezed,
     Object? voteCount = freezed,
     Object? voteAverage = freezed,
@@ -142,6 +152,10 @@ class _$TrendingItemModelCopyWithImpl<$Res>
       originalTitle: originalTitle == freezed
           ? _value.originalTitle
           : originalTitle // ignore: cast_nullable_to_non_nullable
+              as String?,
+      originalName: originalName == freezed
+          ? _value.originalName
+          : originalName // ignore: cast_nullable_to_non_nullable
               as String?,
       overview: overview == freezed
           ? _value.overview
@@ -170,6 +184,10 @@ class _$TrendingItemModelCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       video: video == freezed
           ? _value.video
@@ -205,6 +223,8 @@ abstract class _$$_TrendingItemModelCopyWith<$Res>
           String? originalLanguage,
       @JsonKey(name: 'original_title')
           String? originalTitle,
+      @JsonKey(name: 'original_name')
+          String? originalName,
       @JsonKey(name: 'overview')
           String? overview,
       @JsonKey(name: 'popularity')
@@ -219,6 +239,8 @@ abstract class _$$_TrendingItemModelCopyWith<$Res>
           DateTime? firstAirDate,
       @JsonKey(name: 'title')
           String? title,
+      @JsonKey(name: 'name')
+          String? name,
       @JsonKey(name: 'video')
           bool? video,
       @JsonKey(name: 'vote_count')
@@ -245,6 +267,7 @@ class __$$_TrendingItemModelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? originalLanguage = freezed,
     Object? originalTitle = freezed,
+    Object? originalName = freezed,
     Object? overview = freezed,
     Object? popularity = freezed,
     Object? posterPath = freezed,
@@ -252,6 +275,7 @@ class __$$_TrendingItemModelCopyWithImpl<$Res>
     Object? releaseDate = freezed,
     Object? firstAirDate = freezed,
     Object? title = freezed,
+    Object? name = freezed,
     Object? video = freezed,
     Object? voteCount = freezed,
     Object? voteAverage = freezed,
@@ -276,6 +300,10 @@ class __$$_TrendingItemModelCopyWithImpl<$Res>
       originalTitle: originalTitle == freezed
           ? _value.originalTitle
           : originalTitle // ignore: cast_nullable_to_non_nullable
+              as String?,
+      originalName: originalName == freezed
+          ? _value.originalName
+          : originalName // ignore: cast_nullable_to_non_nullable
               as String?,
       overview: overview == freezed
           ? _value.overview
@@ -304,6 +332,10 @@ class __$$_TrendingItemModelCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       video: video == freezed
           ? _value.video
@@ -335,6 +367,8 @@ class _$_TrendingItemModel implements _TrendingItemModel {
           this.originalLanguage,
       @JsonKey(name: 'original_title')
           this.originalTitle,
+      @JsonKey(name: 'original_name')
+          this.originalName,
       @JsonKey(name: 'overview')
           this.overview,
       @JsonKey(name: 'popularity')
@@ -349,6 +383,8 @@ class _$_TrendingItemModel implements _TrendingItemModel {
           this.firstAirDate,
       @JsonKey(name: 'title')
           this.title,
+      @JsonKey(name: 'name')
+          this.name,
       @JsonKey(name: 'video')
           this.video,
       @JsonKey(name: 'vote_count')
@@ -375,6 +411,9 @@ class _$_TrendingItemModel implements _TrendingItemModel {
   @JsonKey(name: 'original_title')
   final String? originalTitle;
   @override
+  @JsonKey(name: 'original_name')
+  final String? originalName;
+  @override
   @JsonKey(name: 'overview')
   final String? overview;
   @override
@@ -396,6 +435,9 @@ class _$_TrendingItemModel implements _TrendingItemModel {
   @JsonKey(name: 'title')
   final String? title;
   @override
+  @JsonKey(name: 'name')
+  final String? name;
+  @override
   @JsonKey(name: 'video')
   final bool? video;
   @override
@@ -407,7 +449,7 @@ class _$_TrendingItemModel implements _TrendingItemModel {
 
   @override
   String toString() {
-    return 'TrendingItemModel(adult: $adult, backdropPath: $backdropPath, id: $id, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, mediaType: $mediaType, releaseDate: $releaseDate, firstAirDate: $firstAirDate, title: $title, video: $video, voteCount: $voteCount, voteAverage: $voteAverage)';
+    return 'TrendingItemModel(adult: $adult, backdropPath: $backdropPath, id: $id, originalLanguage: $originalLanguage, originalTitle: $originalTitle, originalName: $originalName, overview: $overview, popularity: $popularity, posterPath: $posterPath, mediaType: $mediaType, releaseDate: $releaseDate, firstAirDate: $firstAirDate, title: $title, name: $name, video: $video, voteCount: $voteCount, voteAverage: $voteAverage)';
   }
 
   @override
@@ -423,6 +465,8 @@ class _$_TrendingItemModel implements _TrendingItemModel {
                 .equals(other.originalLanguage, originalLanguage) &&
             const DeepCollectionEquality()
                 .equals(other.originalTitle, originalTitle) &&
+            const DeepCollectionEquality()
+                .equals(other.originalName, originalName) &&
             const DeepCollectionEquality().equals(other.overview, overview) &&
             const DeepCollectionEquality()
                 .equals(other.popularity, popularity) &&
@@ -434,6 +478,7 @@ class _$_TrendingItemModel implements _TrendingItemModel {
             const DeepCollectionEquality()
                 .equals(other.firstAirDate, firstAirDate) &&
             const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.video, video) &&
             const DeepCollectionEquality().equals(other.voteCount, voteCount) &&
             const DeepCollectionEquality()
@@ -449,6 +494,7 @@ class _$_TrendingItemModel implements _TrendingItemModel {
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(originalLanguage),
       const DeepCollectionEquality().hash(originalTitle),
+      const DeepCollectionEquality().hash(originalName),
       const DeepCollectionEquality().hash(overview),
       const DeepCollectionEquality().hash(popularity),
       const DeepCollectionEquality().hash(posterPath),
@@ -456,6 +502,7 @@ class _$_TrendingItemModel implements _TrendingItemModel {
       const DeepCollectionEquality().hash(releaseDate),
       const DeepCollectionEquality().hash(firstAirDate),
       const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(video),
       const DeepCollectionEquality().hash(voteCount),
       const DeepCollectionEquality().hash(voteAverage));
@@ -484,6 +531,8 @@ abstract class _TrendingItemModel implements TrendingItemModel {
           final String? originalLanguage,
       @JsonKey(name: 'original_title')
           final String? originalTitle,
+      @JsonKey(name: 'original_name')
+          final String? originalName,
       @JsonKey(name: 'overview')
           final String? overview,
       @JsonKey(name: 'popularity')
@@ -498,6 +547,8 @@ abstract class _TrendingItemModel implements TrendingItemModel {
           final DateTime? firstAirDate,
       @JsonKey(name: 'title')
           final String? title,
+      @JsonKey(name: 'name')
+          final String? name,
       @JsonKey(name: 'video')
           final bool? video,
       @JsonKey(name: 'vote_count')
@@ -524,6 +575,9 @@ abstract class _TrendingItemModel implements TrendingItemModel {
   @JsonKey(name: 'original_title')
   String? get originalTitle;
   @override
+  @JsonKey(name: 'original_name')
+  String? get originalName;
+  @override
   @JsonKey(name: 'overview')
   String? get overview;
   @override
@@ -544,6 +598,9 @@ abstract class _TrendingItemModel implements TrendingItemModel {
   @override
   @JsonKey(name: 'title')
   String? get title;
+  @override
+  @JsonKey(name: 'name')
+  String? get name;
   @override
   @JsonKey(name: 'video')
   bool? get video;

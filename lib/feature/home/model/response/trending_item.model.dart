@@ -13,6 +13,7 @@ class TrendingItemModel with _$TrendingItemModel {
     @JsonKey(name: 'id') int? id,
     @JsonKey(name: 'original_language') String? originalLanguage,
     @JsonKey(name: 'original_title') String? originalTitle,
+    @JsonKey(name: 'original_name') String? originalName,
     @JsonKey(name: 'overview') String? overview,
     @JsonKey(name: 'popularity') double? popularity,
     @JsonKey(name: 'poster_path') String? posterPath,
@@ -22,6 +23,7 @@ class TrendingItemModel with _$TrendingItemModel {
     @JsonKey(name: 'first_air_date', fromJson: Formatter.toDateTime)
         DateTime? firstAirDate,
     @JsonKey(name: 'title') String? title,
+    @JsonKey(name: 'name') String? name,
     @JsonKey(name: 'video') bool? video,
     @JsonKey(name: 'vote_count') double? voteCount,
     @JsonKey(name: 'vote_average') double? voteAverage,

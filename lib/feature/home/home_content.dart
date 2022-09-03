@@ -1,15 +1,11 @@
-import 'dart:io';
-
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_bloc.dart';
+import 'package:movie_app/feature/home/controller/trending_bloc/trending_event.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_state.dart';
+import 'package:movie_app/feature/home/model/enum/trending_type.dart';
 import 'package:movie_app/feature/home/widgets/trending_slider_frame.dart';
-import 'package:movie_app/test_things/data/movie.dart';
 
 class HomeContent extends StatefulWidget {
   const HomeContent({Key? key}) : super(key: key);
@@ -19,68 +15,9 @@ class HomeContent extends StatefulWidget {
 }
 
 class _HomeContentState extends State<HomeContent> {
-  final List<MovieTestModel> moviesList = const [
-    MovieTestModel(
-        backdropPath: '/AaABt75ZzfMGrscUR2seabz4PEX.jpg',
-        id: 297762,
-        originalLanguage: 'en',
-        originalTitle: 'Wonder Woman',
-        overview:
-            "An Amazon princess comes to the world of Man in the grips of the First World War to confront the forces of evil and bring an end to human conflict.",
-        popularity: 79.101,
-        posterPath: "/lTAmu88GzRysbbA85ib2KB1jLGg.jpg",
-        releaseDate: "2017-05-30",
-        title: 'Wonder Woman',
-        video: false,
-        voteCount: 17911,
-        voteAverage: 7.244),
-    MovieTestModel(
-        backdropPath: '/AaABt75ZzfMGrscUR2seabz4PEX.jpg',
-        id: 297762,
-        originalLanguage: 'en',
-        originalTitle: 'Wonder Woman',
-        overview:
-            "An Amazon princess comes to the world of Man in the grips of the First World War to confront the forces of evil and bring an end to human conflict.",
-        popularity: 79.101,
-        posterPath: "/lTAmu88GzRysbbA85ib2KB1jLGg.jpg",
-        releaseDate: "2017-05-30",
-        title: 'Wonder Woman',
-        video: false,
-        voteCount: 17911,
-        voteAverage: 7.244),
-    MovieTestModel(
-        backdropPath: '/AaABt75ZzfMGrscUR2seabz4PEX.jpg',
-        id: 297762,
-        originalLanguage: 'en',
-        originalTitle: 'Wonder Woman',
-        overview:
-            "An Amazon princess comes to the world of Man in the grips of the First World War to confront the forces of evil and bring an end to human conflict.",
-        popularity: 79.101,
-        posterPath: "/lTAmu88GzRysbbA85ib2KB1jLGg.jpg",
-        releaseDate: "2017-05-30",
-        title: 'Wonder Woman',
-        video: false,
-        voteCount: 17911,
-        voteAverage: 7.244),
-    MovieTestModel(
-        backdropPath: '/AaABt75ZzfMGrscUR2seabz4PEX.jpg',
-        id: 297762,
-        originalLanguage: 'en',
-        originalTitle: 'Wonder Woman',
-        overview:
-            "An Amazon princess comes to the world of Man in the grips of the First World War to confront the forces of evil and bring an end to human conflict.",
-        popularity: 79.101,
-        posterPath: "/lTAmu88GzRysbbA85ib2KB1jLGg.jpg",
-        releaseDate: "2017-05-30",
-        title: 'Wonder Woman',
-        video: false,
-        voteCount: 17911,
-        voteAverage: 7.244)
-  ];
-
   @override
   Widget build(BuildContext context) => Scaffold(
-      backgroundColor: Colors.grey[350],
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         centerTitle: true,
         elevation: 0.0,
@@ -107,15 +44,102 @@ class _HomeContentState extends State<HomeContent> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: BlocBuilder<TrendingBloc, TrendingState>(
-                  builder: (context, state) => state.hasData
-                      ? const TrendingSliderFrame()
-                      : Container(
-                          decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                      'assets/images/sth_went_wrong.jpg'))),
-                        ),
-                ),
+                    builder: (context, state) => Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5.0),
+                              child: Text(
+                                'Trending'.toUpperCase(),
+                                style: const TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black45,
+                                  fontFamily: 'muli',
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 8.0,
+                            ),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  height: 40,
+                                  child: ListView.builder(
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: TrendingType.values.length,
+                                      itemBuilder: (context, index) =>
+                                          GestureDetector(
+                                            behavior: HitTestBehavior.opaque,
+                                            onTap: () {
+                                              if (TrendingType.values[index] ==
+                                                  TrendingType.movie) {
+                                                context
+                                                    .read<TrendingBloc>()
+                                                    .add(TrendingMoviesEvent());
+                                              } else if (TrendingType
+                                                      .values[index] ==
+                                                  TrendingType.tv) {
+                                                context
+                                                    .read<TrendingBloc>()
+                                                    .add(TrendingTVsEvent());
+                                              }
+                                            },
+                                            child: Container(
+                                              margin:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 5.0),
+                                              padding:
+                                                  const EdgeInsets.all(10.0),
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                  color: Colors.black45,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(25.0),
+                                                color: (state.trendingType ==
+                                                        TrendingType
+                                                            .values[index])
+                                                    ? Colors.black45
+                                                    : Colors.white,
+                                              ),
+                                              child: Center(
+                                                child: Text(
+                                                  TrendingType.values[index]
+                                                      .trendingTypeInText,
+                                                  style: TextStyle(
+                                                    fontSize: 12.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: (state
+                                                                .trendingType ==
+                                                            TrendingType
+                                                                .values[index])
+                                                        ? Colors.white
+                                                        : Colors.black45,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          )),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 16.0,
+                            ),
+                            state.hasData
+                                ? const TrendingSliderFrame()
+                                : Container(
+                                    decoration: const BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                'assets/images/sth_went_wrong.jpg'))),
+                                  ),
+                          ],
+                        )),
               )
             ],
           ),

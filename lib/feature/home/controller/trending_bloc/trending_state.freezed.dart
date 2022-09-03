@@ -132,7 +132,7 @@ class __$$_TrendingStateCopyWithImpl<$Res>
 
 class _$_TrendingState extends _TrendingState {
   const _$_TrendingState(
-      {this.isLoading = false,
+      {this.isLoading = true,
       this.trendingType = TrendingType.movie,
       this.trendMovies,
       this.trendTVs})
