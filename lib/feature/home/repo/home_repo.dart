@@ -1,6 +1,8 @@
 import 'package:movie_app/feature/home/model/response/trending_item.model.dart';
 import 'package:movie_app/model/app_config.dart';
 
+import '../model/response/genre_item.model.dart';
+
 abstract class HomePageRepo {
   HomePageRepo({required this.config});
 
@@ -9,4 +11,6 @@ abstract class HomePageRepo {
   Future<List<TrendingItemModel>> getTrendingMovies();
 
   Future<List<TrendingItemModel>> getTrendingTVs();
+
+  Future<List<GenreItemModel>> getGenres();
 }

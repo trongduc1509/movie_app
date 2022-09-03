@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_bloc.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_event.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_state.dart';
-import 'package:movie_app/feature/home/model/enum/trending_type.dart';
+import 'package:movie_app/feature/home/model/enum/media_type.dart';
 import 'package:movie_app/feature/home/widgets/trending_slider_frame.dart';
 
 class HomeContent extends StatefulWidget {
@@ -70,19 +70,19 @@ class _HomeContentState extends State<HomeContent> {
                                   child: ListView.builder(
                                       shrinkWrap: true,
                                       scrollDirection: Axis.horizontal,
-                                      itemCount: TrendingType.values.length,
+                                      itemCount: MediaType.values.length,
                                       itemBuilder: (context, index) =>
                                           GestureDetector(
                                             behavior: HitTestBehavior.opaque,
                                             onTap: () {
-                                              if (TrendingType.values[index] ==
-                                                  TrendingType.movie) {
+                                              if (MediaType.values[index] ==
+                                                  MediaType.movie) {
                                                 context
                                                     .read<TrendingBloc>()
                                                     .add(TrendingMoviesEvent());
-                                              } else if (TrendingType
+                                              } else if (MediaType
                                                       .values[index] ==
-                                                  TrendingType.tv) {
+                                                  MediaType.tv) {
                                                 context
                                                     .read<TrendingBloc>()
                                                     .add(TrendingTVsEvent());
@@ -101,21 +101,20 @@ class _HomeContentState extends State<HomeContent> {
                                                 borderRadius:
                                                     BorderRadius.circular(25.0),
                                                 color: (state.trendingType ==
-                                                        TrendingType
-                                                            .values[index])
+                                                        MediaType.values[index])
                                                     ? Colors.black45
                                                     : Colors.white,
                                               ),
                                               child: Center(
                                                 child: Text(
-                                                  TrendingType.values[index]
+                                                  MediaType.values[index]
                                                       .trendingTypeInText,
                                                   style: TextStyle(
                                                     fontSize: 12.0,
                                                     fontWeight: FontWeight.bold,
                                                     color: (state
                                                                 .trendingType ==
-                                                            TrendingType
+                                                            MediaType
                                                                 .values[index])
                                                         ? Colors.white
                                                         : Colors.black45,
@@ -140,7 +139,7 @@ class _HomeContentState extends State<HomeContent> {
                                   ),
                           ],
                         )),
-              )
+              ),
             ],
           ),
         ),

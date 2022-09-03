@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_bloc.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_state.dart';
-import 'package:movie_app/feature/home/model/enum/trending_type.dart';
+import 'package:movie_app/feature/home/model/enum/media_type.dart';
 
 import '../../../widgets/custom_shimmer.dart';
 
@@ -15,7 +15,7 @@ class TrendingSliderFrame extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
       BlocBuilder<TrendingBloc, TrendingState>(builder: (context, state) {
-        final trendingList = state.trendingType == TrendingType.movie
+        final trendingList = state.trendingType == MediaType.movie
             ? state.trendMovies!.movieList
             : state.trendTVs!.tvList;
         return state.isLoading

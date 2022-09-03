@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$TrendingState {
   bool get isLoading => throw _privateConstructorUsedError;
-  TrendingType get trendingType => throw _privateConstructorUsedError;
+  MediaType get trendingType => throw _privateConstructorUsedError;
   TrendingMoviesModel? get trendMovies => throw _privateConstructorUsedError;
   TrendingTVsModel? get trendTVs => throw _privateConstructorUsedError;
 
@@ -33,7 +33,7 @@ abstract class $TrendingStateCopyWith<$Res> {
       _$TrendingStateCopyWithImpl<$Res>;
   $Res call(
       {bool isLoading,
-      TrendingType trendingType,
+      MediaType trendingType,
       TrendingMoviesModel? trendMovies,
       TrendingTVsModel? trendTVs});
 }
@@ -62,7 +62,7 @@ class _$TrendingStateCopyWithImpl<$Res>
       trendingType: trendingType == freezed
           ? _value.trendingType
           : trendingType // ignore: cast_nullable_to_non_nullable
-              as TrendingType,
+              as MediaType,
       trendMovies: trendMovies == freezed
           ? _value.trendMovies
           : trendMovies // ignore: cast_nullable_to_non_nullable
@@ -84,7 +84,7 @@ abstract class _$$_TrendingStateCopyWith<$Res>
   @override
   $Res call(
       {bool isLoading,
-      TrendingType trendingType,
+      MediaType trendingType,
       TrendingMoviesModel? trendMovies,
       TrendingTVsModel? trendTVs});
 }
@@ -115,7 +115,7 @@ class __$$_TrendingStateCopyWithImpl<$Res>
       trendingType: trendingType == freezed
           ? _value.trendingType
           : trendingType // ignore: cast_nullable_to_non_nullable
-              as TrendingType,
+              as MediaType,
       trendMovies: trendMovies == freezed
           ? _value.trendMovies
           : trendMovies // ignore: cast_nullable_to_non_nullable
@@ -133,7 +133,7 @@ class __$$_TrendingStateCopyWithImpl<$Res>
 class _$_TrendingState extends _TrendingState {
   const _$_TrendingState(
       {this.isLoading = true,
-      this.trendingType = TrendingType.movie,
+      this.trendingType = MediaType.movie,
       this.trendMovies,
       this.trendTVs})
       : super._();
@@ -143,7 +143,7 @@ class _$_TrendingState extends _TrendingState {
   final bool isLoading;
   @override
   @JsonKey()
-  final TrendingType trendingType;
+  final MediaType trendingType;
   @override
   final TrendingMoviesModel? trendMovies;
   @override
@@ -184,7 +184,7 @@ class _$_TrendingState extends _TrendingState {
 abstract class _TrendingState extends TrendingState {
   const factory _TrendingState(
       {final bool isLoading,
-      final TrendingType trendingType,
+      final MediaType trendingType,
       final TrendingMoviesModel? trendMovies,
       final TrendingTVsModel? trendTVs}) = _$_TrendingState;
   const _TrendingState._() : super._();
@@ -192,7 +192,7 @@ abstract class _TrendingState extends TrendingState {
   @override
   bool get isLoading;
   @override
-  TrendingType get trendingType;
+  MediaType get trendingType;
   @override
   TrendingMoviesModel? get trendMovies;
   @override

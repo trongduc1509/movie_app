@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_event.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_state.dart';
-import 'package:movie_app/feature/home/model/enum/trending_type.dart';
+import 'package:movie_app/feature/home/model/enum/media_type.dart';
 import 'package:movie_app/feature/home/model/response/trending_item.model.dart';
 import 'package:movie_app/feature/home/model/trend.model.dart';
 import 'package:movie_app/feature/home/usecase/trending_movies.usecase.dart';
@@ -14,9 +14,9 @@ class TrendingBloc extends Bloc<TrendingEvent, TrendingState> {
     on<TrendingMoviesEvent>(trendingMoviesListEvent);
     on<TrendingTVsEvent>(trendingTVsListEvent);
 
-    if (initialState.trendingType == TrendingType.movie) {
+    if (initialState.trendingType == MediaType.movie) {
       add(TrendingMoviesEvent());
-    } else if (initialState.trendingType == TrendingType.tv) {
+    } else if (initialState.trendingType == MediaType.tv) {
       add(TrendingTVsEvent());
     }
   }
@@ -29,7 +29,7 @@ class TrendingBloc extends Bloc<TrendingEvent, TrendingState> {
     tempList.addAll(dataMovies);
     emit(state.copyWith(
         isLoading: false,
-        trendingType: TrendingType.movie,
+        trendingType: MediaType.movie,
         trendMovies: TrendingMoviesModel(newMovieList: tempList)));
   }
 
@@ -41,7 +41,7 @@ class TrendingBloc extends Bloc<TrendingEvent, TrendingState> {
     tempList.addAll(dataTVs);
     emit(state.copyWith(
         isLoading: false,
-        trendingType: TrendingType.tv,
+        trendingType: MediaType.tv,
         trendTVs: TrendingTVsModel(newTVList: tempList)));
   }
 }
