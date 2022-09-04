@@ -16,7 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$GenreMovieState {
-  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isGenresLoading => throw _privateConstructorUsedError;
+  bool get isMoviesLoading => throw _privateConstructorUsedError;
+  int? get currentGenre => throw _privateConstructorUsedError;
   GenresModel? get genresModel => throw _privateConstructorUsedError;
   GenredMoviesModel? get genredMovies => throw _privateConstructorUsedError;
 
@@ -31,7 +33,9 @@ abstract class $GenreMovieStateCopyWith<$Res> {
           GenreMovieState value, $Res Function(GenreMovieState) then) =
       _$GenreMovieStateCopyWithImpl<$Res>;
   $Res call(
-      {bool isLoading,
+      {bool isGenresLoading,
+      bool isMoviesLoading,
+      int? currentGenre,
       GenresModel? genresModel,
       GenredMoviesModel? genredMovies});
 }
@@ -47,15 +51,25 @@ class _$GenreMovieStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? isLoading = freezed,
+    Object? isGenresLoading = freezed,
+    Object? isMoviesLoading = freezed,
+    Object? currentGenre = freezed,
     Object? genresModel = freezed,
     Object? genredMovies = freezed,
   }) {
     return _then(_value.copyWith(
-      isLoading: isLoading == freezed
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
+      isGenresLoading: isGenresLoading == freezed
+          ? _value.isGenresLoading
+          : isGenresLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isMoviesLoading: isMoviesLoading == freezed
+          ? _value.isMoviesLoading
+          : isMoviesLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentGenre: currentGenre == freezed
+          ? _value.currentGenre
+          : currentGenre // ignore: cast_nullable_to_non_nullable
+              as int?,
       genresModel: genresModel == freezed
           ? _value.genresModel
           : genresModel // ignore: cast_nullable_to_non_nullable
@@ -76,7 +90,9 @@ abstract class _$$_GenreMovieStateCopyWith<$Res>
       __$$_GenreMovieStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool isLoading,
+      {bool isGenresLoading,
+      bool isMoviesLoading,
+      int? currentGenre,
       GenresModel? genresModel,
       GenredMoviesModel? genredMovies});
 }
@@ -94,15 +110,25 @@ class __$$_GenreMovieStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? isLoading = freezed,
+    Object? isGenresLoading = freezed,
+    Object? isMoviesLoading = freezed,
+    Object? currentGenre = freezed,
     Object? genresModel = freezed,
     Object? genredMovies = freezed,
   }) {
     return _then(_$_GenreMovieState(
-      isLoading: isLoading == freezed
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
+      isGenresLoading: isGenresLoading == freezed
+          ? _value.isGenresLoading
+          : isGenresLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isMoviesLoading: isMoviesLoading == freezed
+          ? _value.isMoviesLoading
+          : isMoviesLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentGenre: currentGenre == freezed
+          ? _value.currentGenre
+          : currentGenre // ignore: cast_nullable_to_non_nullable
+              as int?,
       genresModel: genresModel == freezed
           ? _value.genresModel
           : genresModel // ignore: cast_nullable_to_non_nullable
@@ -119,12 +145,21 @@ class __$$_GenreMovieStateCopyWithImpl<$Res>
 
 class _$_GenreMovieState extends _GenreMovieState {
   const _$_GenreMovieState(
-      {this.isLoading = true, this.genresModel, this.genredMovies})
+      {this.isGenresLoading = true,
+      this.isMoviesLoading = true,
+      this.currentGenre,
+      this.genresModel,
+      this.genredMovies})
       : super._();
 
   @override
   @JsonKey()
-  final bool isLoading;
+  final bool isGenresLoading;
+  @override
+  @JsonKey()
+  final bool isMoviesLoading;
+  @override
+  final int? currentGenre;
   @override
   final GenresModel? genresModel;
   @override
@@ -132,7 +167,7 @@ class _$_GenreMovieState extends _GenreMovieState {
 
   @override
   String toString() {
-    return 'GenreMovieState(isLoading: $isLoading, genresModel: $genresModel, genredMovies: $genredMovies)';
+    return 'GenreMovieState(isGenresLoading: $isGenresLoading, isMoviesLoading: $isMoviesLoading, currentGenre: $currentGenre, genresModel: $genresModel, genredMovies: $genredMovies)';
   }
 
   @override
@@ -140,7 +175,12 @@ class _$_GenreMovieState extends _GenreMovieState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GenreMovieState &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.isGenresLoading, isGenresLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.isMoviesLoading, isMoviesLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.currentGenre, currentGenre) &&
             const DeepCollectionEquality()
                 .equals(other.genresModel, genresModel) &&
             const DeepCollectionEquality()
@@ -150,7 +190,9 @@ class _$_GenreMovieState extends _GenreMovieState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(isGenresLoading),
+      const DeepCollectionEquality().hash(isMoviesLoading),
+      const DeepCollectionEquality().hash(currentGenre),
       const DeepCollectionEquality().hash(genresModel),
       const DeepCollectionEquality().hash(genredMovies));
 
@@ -162,13 +204,19 @@ class _$_GenreMovieState extends _GenreMovieState {
 
 abstract class _GenreMovieState extends GenreMovieState {
   const factory _GenreMovieState(
-      {final bool isLoading,
+      {final bool isGenresLoading,
+      final bool isMoviesLoading,
+      final int? currentGenre,
       final GenresModel? genresModel,
       final GenredMoviesModel? genredMovies}) = _$_GenreMovieState;
   const _GenreMovieState._() : super._();
 
   @override
-  bool get isLoading;
+  bool get isGenresLoading;
+  @override
+  bool get isMoviesLoading;
+  @override
+  int? get currentGenre;
   @override
   GenresModel? get genresModel;
   @override

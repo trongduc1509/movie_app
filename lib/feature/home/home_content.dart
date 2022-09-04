@@ -5,6 +5,7 @@ import 'package:movie_app/feature/home/controller/trending_bloc/trending_bloc.da
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_event.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_state.dart';
 import 'package:movie_app/feature/home/model/enum/media_type.dart';
+import 'package:movie_app/feature/home/widgets/genres_movie_frame.dart';
 import 'package:movie_app/feature/home/widgets/trending_slider_frame.dart';
 
 class HomeContent extends StatefulWidget {
@@ -140,6 +141,7 @@ class _HomeContentState extends State<HomeContent> {
                           ],
                         )),
               ),
+              const GenredMoviesFrame(),
             ],
           ),
         ),

@@ -9,10 +9,14 @@ class GenreMovieState with _$GenreMovieState {
   const GenreMovieState._();
 
   const factory GenreMovieState({
-    @Default(true) bool isLoading,
+    @Default(true) bool isGenresLoading,
+    @Default(true) bool isMoviesLoading,
+    int? currentGenre,
     GenresModel? genresModel,
     GenredMoviesModel? genredMovies,
   }) = _GenreMovieState;
 
-  bool get hasData => genredMovies!.moviesList.isNotEmpty;
+  bool get hasGenresData => genresModel!.genresList.isNotEmpty;
+
+  bool get hasMoviesData => genredMovies!.moviesList.isNotEmpty;
 }

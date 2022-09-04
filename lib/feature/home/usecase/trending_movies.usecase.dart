@@ -9,6 +9,5 @@ class TrendingMoviesUseCase extends UseCase<List<TrendingItemModel>> {
   final HomePageRepo repo = AppService.inst.homePageRepo;
 
   @override
-  Future<List<TrendingItemModel>> execute() =>
-      repo.getTrendingMovies().catchError((_) => <TrendingItemModel>[]);
+  Future<List<TrendingItemModel>> execute() => repo.getTrendingMovies();
 }
