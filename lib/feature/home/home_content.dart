@@ -28,6 +28,8 @@ class _HomeContentState extends State<HomeContent> {
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
         leading: IconButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
             iconSize: 50,
             onPressed: () {},
             icon: Container(
@@ -40,6 +42,8 @@ class _HomeContentState extends State<HomeContent> {
             )),
         actions: [
           IconButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
               iconSize: 50,
               onPressed: () {},
               icon: Container(
