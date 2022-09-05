@@ -1,0 +1,3 @@
+class TrendingPersonEvent {
+  const TrendingPersonEvent();
+}
