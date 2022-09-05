@@ -25,12 +25,11 @@ class GenreMovieBloc extends Bloc<GenreMovieEvent, GenreMovieState> {
   }
 
   Future<void> getMoviesListByGenreId(GenreMoviesByIdEvent event, emit) async {
-    emit(state.copyWith(isMoviesLoading: true));
+    emit(state.copyWith(isMoviesLoading: true, currentGenre: event.genreId));
     final usecaseMovies = GenreMoviesUseCase(genreId: event.genreId);
     final dataMovies = await usecaseMovies.execute();
     emit(state.copyWith(
       isMoviesLoading: false,
-      currentGenre: event.genreId,
       genredMovies: GenredMoviesModel(newMoviesList: dataMovies),
     ));
   }

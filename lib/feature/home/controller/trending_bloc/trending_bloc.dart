@@ -22,26 +22,29 @@ class TrendingBloc extends Bloc<TrendingEvent, TrendingState> {
   }
 
   Future<void> trendingMoviesListEvent(TrendingMoviesEvent event, emit) async {
-    emit(state.copyWith(isLoading: true));
+    emit(state.copyWith(
+      isLoading: true,
+      trendingType: MediaType.movie,
+    ));
     final usecaseMovie = TrendingMoviesUseCase();
     final dataMovies = await usecaseMovie.execute();
     List<TrendingItemModel> tempList = [];
     tempList.addAll(dataMovies);
     emit(state.copyWith(
         isLoading: false,
-        trendingType: MediaType.movie,
         trendMovies: TrendingMoviesModel(newMovieList: tempList)));
   }
 
   Future<void> trendingTVsListEvent(TrendingTVsEvent event, emit) async {
-    emit(state.copyWith(isLoading: true));
+    emit(state.copyWith(
+      isLoading: true,
+      trendingType: MediaType.tv,
+    ));
     final usecaseTV = TrendingTVSUseCase();
     final dataTVs = await usecaseTV.execute();
     List<TrendingItemModel> tempList = [];
     tempList.addAll(dataTVs);
     emit(state.copyWith(
-        isLoading: false,
-        trendingType: MediaType.tv,
-        trendTVs: TrendingTVsModel(newTVList: tempList)));
+        isLoading: false, trendTVs: TrendingTVsModel(newTVList: tempList)));
   }
 }
