@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/feature/home/controller/genre_movie_bloc/genre_movie_event.dart';
 import 'package:movie_app/feature/home/controller/genre_movie_bloc/genre_movie_state.dart';
 import 'package:movie_app/feature/home/model/genre.model.dart';
-import 'package:movie_app/feature/home/model/response/genre_item.model.dart';
 import 'package:movie_app/feature/home/usecase/genre_movies.usecase.dart';
 import 'package:movie_app/feature/home/usecase/genres.usecase.dart';
 

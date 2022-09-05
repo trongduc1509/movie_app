@@ -6,6 +6,7 @@ import 'package:movie_app/feature/home/controller/trending_bloc/trending_event.d
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_state.dart';
 import 'package:movie_app/feature/home/model/enum/media_type.dart';
 import 'package:movie_app/feature/home/widgets/genres_movie_frame.dart';
+import 'package:movie_app/feature/home/widgets/trending_people_frame.dart';
 import 'package:movie_app/feature/home/widgets/trending_slider_frame.dart';
 
 class HomeContent extends StatefulWidget {
@@ -18,26 +19,42 @@ class HomeContent extends StatefulWidget {
 class _HomeContentState extends State<HomeContent> {
   @override
   Widget build(BuildContext context) => Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
+      extendBody: true,
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: true,
         elevation: 0.0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
         leading: IconButton(
-            onPressed: () {}, icon: SvgPicture.asset('assets/icons/menu.svg')),
+            iconSize: 50,
+            onPressed: () {},
+            icon: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                color: const Color(0x080a0928),
+              ),
+              padding: const EdgeInsets.all(10.0),
+              child: SvgPicture.asset('assets/icons/menu.svg'),
+            )),
         actions: [
           IconButton(
+              iconSize: 50,
               onPressed: () {},
-              icon: SvgPicture.asset('assets/icons/search.svg'))
+              icon: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8.0),
+                  color: const Color(0x080a0928),
+                ),
+                padding: const EdgeInsets.all(10.0),
+                child: SvgPicture.asset('assets/icons/search.svg'),
+              )),
         ],
-        title: const Text(
-          'MOVIES-DB',
-          style: TextStyle(fontWeight: FontWeight.w700, color: Colors.black54),
-        ),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,12 +66,12 @@ class _HomeContentState extends State<HomeContent> {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 5.0),
+                            const Padding(
+                              padding: EdgeInsets.only(left: 5.0),
                               child: Text(
-                                'Trending'.toUpperCase(),
-                                style: const TextStyle(
-                                  fontSize: 18.0,
+                                'Trending Now',
+                                style: TextStyle(
+                                  fontSize: 25.0,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black45,
                                   fontFamily: 'muli',
@@ -142,6 +159,7 @@ class _HomeContentState extends State<HomeContent> {
                         )),
               ),
               const GenredMoviesFrame(),
+              const TrendingPeopleFrame(),
             ],
           ),
         ),

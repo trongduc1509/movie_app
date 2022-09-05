@@ -15,10 +15,11 @@ class GenredMoviesListFrame extends StatelessWidget {
       BlocBuilder<GenreMovieBloc, GenreMovieState>(
           builder: (context, state) => state.isMoviesLoading
               ? SizedBox(
-                  height: 300,
+                  height: 276,
                   child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
                     itemCount: state.genredMovies!.moviesList.length,
                     itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.symmetric(
@@ -38,7 +39,7 @@ class GenredMoviesListFrame extends StatelessWidget {
                           const SizedBox(height: 8.0),
                           SizedBox(
                               width: 120,
-                              height: 30,
+                              height: 32,
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,10 +74,11 @@ class GenredMoviesListFrame extends StatelessWidget {
                   ),
                 )
               : SizedBox(
-                  height: 300,
+                  height: 276,
                   child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
                     itemCount: state.genredMovies!.moviesList.length,
                     itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.symmetric(
@@ -110,7 +112,7 @@ class GenredMoviesListFrame extends StatelessWidget {
                           const SizedBox(height: 8.0),
                           SizedBox(
                             width: 120,
-                            height: 30,
+                            height: 32,
                             child: Text(
                               state.genredMovies!.moviesList[index].title ?? "",
                               style: const TextStyle(

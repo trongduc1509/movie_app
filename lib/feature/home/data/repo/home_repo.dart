@@ -2,6 +2,7 @@ import 'package:movie_app/base/gateway/api_gateway.base.dart';
 import 'package:movie_app/feature/home/model/response/genre_item.model.dart';
 import 'package:movie_app/feature/home/model/response/genre_movie.model.dart';
 import 'package:movie_app/feature/home/model/response/trending_item.model.dart';
+import 'package:movie_app/feature/home/model/response/trending_person.model.dart';
 import 'package:movie_app/feature/home/repo/home_repo.dart';
 import 'package:movie_app/model/app_config.dart';
 
@@ -70,6 +71,23 @@ class HomePageRepoV1 extends HomePageRepo {
     final response = await apiGateway.execute();
     return (response.data['results'] as List)
         .map((e) => GenredMovieModel.fromJson(e))
+        .toList();
+  }
+
+  @override
+  Future<List<TrendingPersonModel>> getTrendingPeople() async {
+    final apiGateway = ApiGateway(
+      config.baseUrl,
+      resource: Resource.lazy('/trending/person/week'),
+      method: HTTPMethod.get,
+      params: {
+        'api_key': config.apiKey,
+      },
+    );
+
+    final response = await apiGateway.execute();
+    return (response.data['results'] as List)
+        .map((e) => TrendingPersonModel.fromJson(e))
         .toList();
   }
   //Future<List>
