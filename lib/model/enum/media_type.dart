@@ -1,4 +1,4 @@
-enum MediaType { movie, tv }
+enum MediaType { movie, tv, person }
 
 extension TrendingTypeText on MediaType {
   String get trendingTypeInText {
@@ -7,6 +7,8 @@ extension TrendingTypeText on MediaType {
         return "MOVIES";
       case MediaType.tv:
         return "TV SHOWS";
+      case MediaType.person:
+        return "PERSON";
     }
   }
 }

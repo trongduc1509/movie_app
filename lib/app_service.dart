@@ -1,9 +1,13 @@
+import 'package:movie_app/feature/detail/data/repo/detail_repo.dart';
+import 'package:movie_app/feature/detail/repo/detail_repo.dart';
 import 'package:movie_app/feature/home/data/repo/home_repo.dart';
 import 'package:movie_app/feature/home/repo/home_repo.dart';
 import 'package:movie_app/model/app_config.dart';
 
 class AppService {
-  AppService({required this.config}) : homePageRepo = HomePageRepoV1(config);
+  AppService({required this.config})
+      : homePageRepo = HomePageRepoV1(config),
+        detailRepo = DetailRepoV1(config: config);
 
   static AppService? _inst;
 
@@ -19,4 +23,5 @@ class AppService {
 
   final AppConfig config;
   final HomePageRepo homePageRepo;
+  final DetailRepo detailRepo;
 }

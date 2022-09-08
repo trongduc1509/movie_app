@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:movie_app/feature/home/model/enum/media_type.dart';
 import 'package:movie_app/feature/home/model/trend.model.dart';
+
+import '../../../../model/enum/media_type.dart';
 
 part 'trending_state.freezed.dart';
 

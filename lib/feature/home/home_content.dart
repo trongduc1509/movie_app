@@ -4,10 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_bloc.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_event.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_state.dart';
-import 'package:movie_app/feature/home/model/enum/media_type.dart';
 import 'package:movie_app/feature/home/widgets/genres_movie_frame.dart';
 import 'package:movie_app/feature/home/widgets/trending_people_frame.dart';
 import 'package:movie_app/feature/home/widgets/trending_slider_frame.dart';
+
+import '../../model/enum/media_type.dart';
 
 class HomeContent extends StatefulWidget {
   const HomeContent({Key? key}) : super(key: key);
@@ -93,58 +94,65 @@ class _HomeContentState extends State<HomeContent> {
                                       shrinkWrap: true,
                                       scrollDirection: Axis.horizontal,
                                       itemCount: MediaType.values.length,
-                                      itemBuilder: (context, index) =>
-                                          GestureDetector(
-                                            behavior: HitTestBehavior.opaque,
-                                            onTap: () {
-                                              if (MediaType.values[index] ==
-                                                  MediaType.movie) {
-                                                context
-                                                    .read<TrendingBloc>()
-                                                    .add(TrendingMoviesEvent());
-                                              } else if (MediaType
-                                                      .values[index] ==
-                                                  MediaType.tv) {
-                                                context
-                                                    .read<TrendingBloc>()
-                                                    .add(TrendingTVsEvent());
-                                              }
-                                            },
-                                            child: Container(
-                                              margin:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 5.0),
-                                              padding:
-                                                  const EdgeInsets.all(10.0),
-                                              decoration: BoxDecoration(
-                                                border: Border.all(
-                                                  color: Colors.black45,
+                                      itemBuilder: (context, index) => MediaType
+                                                  .values[index] !=
+                                              MediaType.person
+                                          ? GestureDetector(
+                                              behavior: HitTestBehavior.opaque,
+                                              onTap: () {
+                                                if (MediaType.values[index] ==
+                                                    MediaType.movie) {
+                                                  context
+                                                      .read<TrendingBloc>()
+                                                      .add(
+                                                          TrendingMoviesEvent());
+                                                } else if (MediaType
+                                                        .values[index] ==
+                                                    MediaType.tv) {
+                                                  context
+                                                      .read<TrendingBloc>()
+                                                      .add(TrendingTVsEvent());
+                                                }
+                                              },
+                                              child: Container(
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 5.0),
+                                                padding:
+                                                    const EdgeInsets.all(10.0),
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                    color: Colors.black45,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25.0),
+                                                  color: (state.trendingType ==
+                                                          MediaType
+                                                              .values[index])
+                                                      ? Colors.black45
+                                                      : Colors.white,
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(25.0),
-                                                color: (state.trendingType ==
-                                                        MediaType.values[index])
-                                                    ? Colors.black45
-                                                    : Colors.white,
-                                              ),
-                                              child: Center(
-                                                child: Text(
-                                                  MediaType.values[index]
-                                                      .trendingTypeInText,
-                                                  style: TextStyle(
-                                                    fontSize: 12.0,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: (state
-                                                                .trendingType ==
-                                                            MediaType
-                                                                .values[index])
-                                                        ? Colors.white
-                                                        : Colors.black45,
+                                                child: Center(
+                                                  child: Text(
+                                                    MediaType.values[index]
+                                                        .trendingTypeInText,
+                                                    style: TextStyle(
+                                                      fontSize: 12.0,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: (state
+                                                                  .trendingType ==
+                                                              MediaType.values[
+                                                                  index])
+                                                          ? Colors.white
+                                                          : Colors.black45,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          )),
+                                            )
+                                          : const SizedBox.shrink()),
                                 ),
                               ],
                             ),

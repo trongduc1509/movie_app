@@ -1,12 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_event.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_state.dart';
-import 'package:movie_app/feature/home/model/enum/media_type.dart';
 import 'package:movie_app/feature/home/model/response/trending_item.model.dart';
 import 'package:movie_app/feature/home/model/trend.model.dart';
 import 'package:movie_app/feature/home/usecase/trending_movies.usecase.dart';
 import 'package:movie_app/feature/home/usecase/trending_tvs.usecase.dart';
 
+import '../../../../model/enum/media_type.dart';
 import 'trending_event.dart';
 
 class TrendingBloc extends Bloc<TrendingEvent, TrendingState> {
