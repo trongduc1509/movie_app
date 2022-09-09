@@ -29,6 +29,9 @@ _$_DetailMovieResponseModel _$$_DetailMovieResponseModelFromJson(
       videos: json['videos'] == null
           ? null
           : VideosModel.fromJson(json['videos'] as Map<String, dynamic>),
+      images: json['images'] == null
+          ? null
+          : ImagesModel.fromJson(json['images'] as Map<String, dynamic>),
       genres: (json['genres'] as List<dynamic>?)
           ?.map((e) => GenreItemModel.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -55,6 +58,7 @@ Map<String, dynamic> _$$_DetailMovieResponseModelToJson(
       'vote_average': instance.voteAverage,
       'vote_count': instance.voteCount,
       'videos': instance.videos,
+      'images': instance.images,
       'genres': instance.genres,
     };
 
@@ -138,4 +142,26 @@ Map<String, dynamic> _$$_ProductCompanyItemModelToJson(
       'logo_path': instance.logoPath,
       'name': instance.name,
       'origin_country': instance.originCountry,
+    };
+
+_$_ImagesModel _$$_ImagesModelFromJson(Map<String, dynamic> json) =>
+    _$_ImagesModel(
+      backdrops: (json['backdrops'] as List<dynamic>?)
+          ?.map((e) => ImageItemModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$_ImagesModelToJson(_$_ImagesModel instance) =>
+    <String, dynamic>{
+      'backdrops': instance.backdrops,
+    };
+
+_$_ImageItemModel _$$_ImageItemModelFromJson(Map<String, dynamic> json) =>
+    _$_ImageItemModel(
+      filePath: json['file_path'] as String?,
+    );
+
+Map<String, dynamic> _$$_ImageItemModelToJson(_$_ImageItemModel instance) =>
+    <String, dynamic>{
+      'file_path': instance.filePath,
     };

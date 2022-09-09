@@ -15,6 +15,7 @@ class GenresBar extends StatelessWidget {
               ? SizedBox(
                   height: 40,
                   child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     itemCount: state.genresModel!.genresList.length,
                     itemBuilder: (context, index) => Padding(
@@ -33,6 +34,7 @@ class GenresBar extends StatelessWidget {
               : SizedBox(
                   height: 40,
                   child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     itemCount: state.genresModel!.genresList.length,
                     itemBuilder: (context, index) => GestureDetector(
@@ -41,28 +43,39 @@ class GenresBar extends StatelessWidget {
                               genreId:
                                   state.genresModel!.genresList[index].id)),
                       behavior: HitTestBehavior.opaque,
-                      child: Container(
-                        padding: const EdgeInsets.all(10.0),
-                        decoration: state.currentGenre != null &&
-                                state.currentGenre! ==
-                                    state.genresModel!.genresList[index].id
-                            ? const BoxDecoration(
-                                border: Border(
-                                    bottom: BorderSide(
-                                        color: Colors.black45, width: 2)),
-                              )
-                            : null,
-                        child: Text(
-                          state.genresModel!.genresList[index].name != null
-                              ? state.genresModel!.genresList[index].name!
-                                  .toUpperCase()
-                              : "",
-                          style: const TextStyle(
-                            color: Colors.black45,
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.bold,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              state.genresModel!.genresList[index].name != null
+                                  ? state.genresModel!.genresList[index].name!
+                                      .toUpperCase()
+                                  : "",
+                              style: const TextStyle(
+                                color: Colors.black45,
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
-                        ),
+                          state.currentGenre != null &&
+                                  state.currentGenre! ==
+                                      state.genresModel!.genresList[index].id
+                              ? const DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    color: Colors.black45,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(25.0)),
+                                  ),
+                                  child: SizedBox(
+                                    height: 4.0,
+                                    width: 30.0,
+                                  ),
+                                )
+                              : const SizedBox.shrink(),
+                        ],
                       ),
                     ),
                   ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:movie_app/feature/detail/detail_page.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_bloc.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_event.dart';
 import 'package:movie_app/feature/home/controller/trending_bloc/trending_state.dart';
@@ -46,7 +47,8 @@ class _HomeContentState extends State<HomeContent> {
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               iconSize: 50,
-              onPressed: () {},
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const DetailPage(id: 0))),
               icon: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
@@ -91,6 +93,7 @@ class _HomeContentState extends State<HomeContent> {
                                 SizedBox(
                                   height: 40,
                                   child: ListView.builder(
+                                      physics: const BouncingScrollPhysics(),
                                       shrinkWrap: true,
                                       scrollDirection: Axis.horizontal,
                                       itemCount: MediaType.values.length,

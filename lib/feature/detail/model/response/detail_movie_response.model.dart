@@ -27,6 +27,7 @@ class DetailMovieResponseModel with _$DetailMovieResponseModel {
     @JsonKey(name: 'vote_average') double? voteAverage,
     @JsonKey(name: 'vote_count') int? voteCount,
     VideosModel? videos,
+    ImagesModel? images,
     List<GenreItemModel>? genres,
   }) = _DetailMovieResponseModel;
 
@@ -95,4 +96,24 @@ class ProductCompanyItemModel with _$ProductCompanyItemModel {
 
   factory ProductCompanyItemModel.fromJson(Map<String, Object?> json) =>
       _$ProductCompanyItemModelFromJson(json);
+}
+
+@freezed
+class ImagesModel with _$ImagesModel {
+  const factory ImagesModel({
+    List<ImageItemModel>? backdrops,
+  }) = _ImagesModel;
+
+  factory ImagesModel.fromJson(Map<String, Object?> json) =>
+      _$ImagesModelFromJson(json);
+}
+
+@freezed
+class ImageItemModel with _$ImageItemModel {
+  const factory ImageItemModel({
+    @JsonKey(name: 'file_path') String? filePath,
+  }) = _ImageItemModel;
+
+  factory ImageItemModel.fromJson(Map<String, Object?> json) =>
+      _$ImageItemModelFromJson(json);
 }

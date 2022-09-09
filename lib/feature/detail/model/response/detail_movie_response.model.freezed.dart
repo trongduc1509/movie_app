@@ -45,6 +45,7 @@ mixin _$DetailMovieResponseModel {
   @JsonKey(name: 'vote_count')
   int? get voteCount => throw _privateConstructorUsedError;
   VideosModel? get videos => throw _privateConstructorUsedError;
+  ImagesModel? get images => throw _privateConstructorUsedError;
   List<GenreItemModel>? get genres => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -83,9 +84,11 @@ abstract class $DetailMovieResponseModelCopyWith<$Res> {
       @JsonKey(name: 'vote_count')
           int? voteCount,
       VideosModel? videos,
+      ImagesModel? images,
       List<GenreItemModel>? genres});
 
   $VideosModelCopyWith<$Res>? get videos;
+  $ImagesModelCopyWith<$Res>? get images;
 }
 
 /// @nodoc
@@ -117,6 +120,7 @@ class _$DetailMovieResponseModelCopyWithImpl<$Res>
     Object? voteAverage = freezed,
     Object? voteCount = freezed,
     Object? videos = freezed,
+    Object? images = freezed,
     Object? genres = freezed,
   }) {
     return _then(_value.copyWith(
@@ -192,6 +196,10 @@ class _$DetailMovieResponseModelCopyWithImpl<$Res>
           ? _value.videos
           : videos // ignore: cast_nullable_to_non_nullable
               as VideosModel?,
+      images: images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as ImagesModel?,
       genres: genres == freezed
           ? _value.genres
           : genres // ignore: cast_nullable_to_non_nullable
@@ -207,6 +215,17 @@ class _$DetailMovieResponseModelCopyWithImpl<$Res>
 
     return $VideosModelCopyWith<$Res>(_value.videos!, (value) {
       return _then(_value.copyWith(videos: value));
+    });
+  }
+
+  @override
+  $ImagesModelCopyWith<$Res>? get images {
+    if (_value.images == null) {
+      return null;
+    }
+
+    return $ImagesModelCopyWith<$Res>(_value.images!, (value) {
+      return _then(_value.copyWith(images: value));
     });
   }
 }
@@ -244,10 +263,13 @@ abstract class _$$_DetailMovieResponseModelCopyWith<$Res>
       @JsonKey(name: 'vote_count')
           int? voteCount,
       VideosModel? videos,
+      ImagesModel? images,
       List<GenreItemModel>? genres});
 
   @override
   $VideosModelCopyWith<$Res>? get videos;
+  @override
+  $ImagesModelCopyWith<$Res>? get images;
 }
 
 /// @nodoc
@@ -282,6 +304,7 @@ class __$$_DetailMovieResponseModelCopyWithImpl<$Res>
     Object? voteAverage = freezed,
     Object? voteCount = freezed,
     Object? videos = freezed,
+    Object? images = freezed,
     Object? genres = freezed,
   }) {
     return _then(_$_DetailMovieResponseModel(
@@ -357,6 +380,10 @@ class __$$_DetailMovieResponseModelCopyWithImpl<$Res>
           ? _value.videos
           : videos // ignore: cast_nullable_to_non_nullable
               as VideosModel?,
+      images: images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as ImagesModel?,
       genres: genres == freezed
           ? _value._genres
           : genres // ignore: cast_nullable_to_non_nullable
@@ -395,6 +422,7 @@ class _$_DetailMovieResponseModel
       @JsonKey(name: 'vote_count')
           this.voteCount,
       this.videos,
+      this.images,
       final List<GenreItemModel>? genres})
       : _genres = genres;
 
@@ -443,6 +471,8 @@ class _$_DetailMovieResponseModel
   final int? voteCount;
   @override
   final VideosModel? videos;
+  @override
+  final ImagesModel? images;
   final List<GenreItemModel>? _genres;
   @override
   List<GenreItemModel>? get genres {
@@ -454,7 +484,7 @@ class _$_DetailMovieResponseModel
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DetailMovieResponseModel(adult: $adult, backdropPath: $backdropPath, budget: $budget, homepage: $homepage, id: $id, imdbId: $imdbId, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, status: $status, tagline: $tagline, title: $title, voteAverage: $voteAverage, voteCount: $voteCount, videos: $videos, genres: $genres)';
+    return 'DetailMovieResponseModel(adult: $adult, backdropPath: $backdropPath, budget: $budget, homepage: $homepage, id: $id, imdbId: $imdbId, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, status: $status, tagline: $tagline, title: $title, voteAverage: $voteAverage, voteCount: $voteCount, videos: $videos, images: $images, genres: $genres)';
   }
 
   @override
@@ -480,6 +510,7 @@ class _$_DetailMovieResponseModel
       ..add(DiagnosticsProperty('voteAverage', voteAverage))
       ..add(DiagnosticsProperty('voteCount', voteCount))
       ..add(DiagnosticsProperty('videos', videos))
+      ..add(DiagnosticsProperty('images', images))
       ..add(DiagnosticsProperty('genres', genres));
   }
 
@@ -511,6 +542,7 @@ class _$_DetailMovieResponseModel
                 .equals(other.voteAverage, voteAverage) &&
             const DeepCollectionEquality().equals(other.voteCount, voteCount) &&
             const DeepCollectionEquality().equals(other.videos, videos) &&
+            const DeepCollectionEquality().equals(other.images, images) &&
             const DeepCollectionEquality().equals(other._genres, _genres));
   }
 
@@ -536,6 +568,7 @@ class _$_DetailMovieResponseModel
         const DeepCollectionEquality().hash(voteAverage),
         const DeepCollectionEquality().hash(voteCount),
         const DeepCollectionEquality().hash(videos),
+        const DeepCollectionEquality().hash(images),
         const DeepCollectionEquality().hash(_genres)
       ]);
 
@@ -577,6 +610,7 @@ abstract class _DetailMovieResponseModel implements DetailMovieResponseModel {
       @JsonKey(name: 'vote_count')
           final int? voteCount,
       final VideosModel? videos,
+      final ImagesModel? images,
       final List<GenreItemModel>? genres}) = _$_DetailMovieResponseModel;
 
   factory _DetailMovieResponseModel.fromJson(Map<String, dynamic> json) =
@@ -624,6 +658,8 @@ abstract class _DetailMovieResponseModel implements DetailMovieResponseModel {
   int? get voteCount;
   @override
   VideosModel? get videos;
+  @override
+  ImagesModel? get images;
   @override
   List<GenreItemModel>? get genres;
   @override
@@ -1668,4 +1704,297 @@ abstract class _ProductCompanyItemModel implements ProductCompanyItemModel {
   @JsonKey(ignore: true)
   _$$_ProductCompanyItemModelCopyWith<_$_ProductCompanyItemModel>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+ImagesModel _$ImagesModelFromJson(Map<String, dynamic> json) {
+  return _ImagesModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ImagesModel {
+  List<ImageItemModel>? get backdrops => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ImagesModelCopyWith<ImagesModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImagesModelCopyWith<$Res> {
+  factory $ImagesModelCopyWith(
+          ImagesModel value, $Res Function(ImagesModel) then) =
+      _$ImagesModelCopyWithImpl<$Res>;
+  $Res call({List<ImageItemModel>? backdrops});
+}
+
+/// @nodoc
+class _$ImagesModelCopyWithImpl<$Res> implements $ImagesModelCopyWith<$Res> {
+  _$ImagesModelCopyWithImpl(this._value, this._then);
+
+  final ImagesModel _value;
+  // ignore: unused_field
+  final $Res Function(ImagesModel) _then;
+
+  @override
+  $Res call({
+    Object? backdrops = freezed,
+  }) {
+    return _then(_value.copyWith(
+      backdrops: backdrops == freezed
+          ? _value.backdrops
+          : backdrops // ignore: cast_nullable_to_non_nullable
+              as List<ImageItemModel>?,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_ImagesModelCopyWith<$Res>
+    implements $ImagesModelCopyWith<$Res> {
+  factory _$$_ImagesModelCopyWith(
+          _$_ImagesModel value, $Res Function(_$_ImagesModel) then) =
+      __$$_ImagesModelCopyWithImpl<$Res>;
+  @override
+  $Res call({List<ImageItemModel>? backdrops});
+}
+
+/// @nodoc
+class __$$_ImagesModelCopyWithImpl<$Res> extends _$ImagesModelCopyWithImpl<$Res>
+    implements _$$_ImagesModelCopyWith<$Res> {
+  __$$_ImagesModelCopyWithImpl(
+      _$_ImagesModel _value, $Res Function(_$_ImagesModel) _then)
+      : super(_value, (v) => _then(v as _$_ImagesModel));
+
+  @override
+  _$_ImagesModel get _value => super._value as _$_ImagesModel;
+
+  @override
+  $Res call({
+    Object? backdrops = freezed,
+  }) {
+    return _then(_$_ImagesModel(
+      backdrops: backdrops == freezed
+          ? _value._backdrops
+          : backdrops // ignore: cast_nullable_to_non_nullable
+              as List<ImageItemModel>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ImagesModel with DiagnosticableTreeMixin implements _ImagesModel {
+  const _$_ImagesModel({final List<ImageItemModel>? backdrops})
+      : _backdrops = backdrops;
+
+  factory _$_ImagesModel.fromJson(Map<String, dynamic> json) =>
+      _$$_ImagesModelFromJson(json);
+
+  final List<ImageItemModel>? _backdrops;
+  @override
+  List<ImageItemModel>? get backdrops {
+    final value = _backdrops;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ImagesModel(backdrops: $backdrops)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ImagesModel'))
+      ..add(DiagnosticsProperty('backdrops', backdrops));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ImagesModel &&
+            const DeepCollectionEquality()
+                .equals(other._backdrops, _backdrops));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_backdrops));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ImagesModelCopyWith<_$_ImagesModel> get copyWith =>
+      __$$_ImagesModelCopyWithImpl<_$_ImagesModel>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ImagesModelToJson(this);
+  }
+}
+
+abstract class _ImagesModel implements ImagesModel {
+  const factory _ImagesModel({final List<ImageItemModel>? backdrops}) =
+      _$_ImagesModel;
+
+  factory _ImagesModel.fromJson(Map<String, dynamic> json) =
+      _$_ImagesModel.fromJson;
+
+  @override
+  List<ImageItemModel>? get backdrops;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ImagesModelCopyWith<_$_ImagesModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ImageItemModel _$ImageItemModelFromJson(Map<String, dynamic> json) {
+  return _ImageItemModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ImageItemModel {
+  @JsonKey(name: 'file_path')
+  String? get filePath => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ImageItemModelCopyWith<ImageItemModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImageItemModelCopyWith<$Res> {
+  factory $ImageItemModelCopyWith(
+          ImageItemModel value, $Res Function(ImageItemModel) then) =
+      _$ImageItemModelCopyWithImpl<$Res>;
+  $Res call({@JsonKey(name: 'file_path') String? filePath});
+}
+
+/// @nodoc
+class _$ImageItemModelCopyWithImpl<$Res>
+    implements $ImageItemModelCopyWith<$Res> {
+  _$ImageItemModelCopyWithImpl(this._value, this._then);
+
+  final ImageItemModel _value;
+  // ignore: unused_field
+  final $Res Function(ImageItemModel) _then;
+
+  @override
+  $Res call({
+    Object? filePath = freezed,
+  }) {
+    return _then(_value.copyWith(
+      filePath: filePath == freezed
+          ? _value.filePath
+          : filePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_ImageItemModelCopyWith<$Res>
+    implements $ImageItemModelCopyWith<$Res> {
+  factory _$$_ImageItemModelCopyWith(
+          _$_ImageItemModel value, $Res Function(_$_ImageItemModel) then) =
+      __$$_ImageItemModelCopyWithImpl<$Res>;
+  @override
+  $Res call({@JsonKey(name: 'file_path') String? filePath});
+}
+
+/// @nodoc
+class __$$_ImageItemModelCopyWithImpl<$Res>
+    extends _$ImageItemModelCopyWithImpl<$Res>
+    implements _$$_ImageItemModelCopyWith<$Res> {
+  __$$_ImageItemModelCopyWithImpl(
+      _$_ImageItemModel _value, $Res Function(_$_ImageItemModel) _then)
+      : super(_value, (v) => _then(v as _$_ImageItemModel));
+
+  @override
+  _$_ImageItemModel get _value => super._value as _$_ImageItemModel;
+
+  @override
+  $Res call({
+    Object? filePath = freezed,
+  }) {
+    return _then(_$_ImageItemModel(
+      filePath: filePath == freezed
+          ? _value.filePath
+          : filePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ImageItemModel
+    with DiagnosticableTreeMixin
+    implements _ImageItemModel {
+  const _$_ImageItemModel({@JsonKey(name: 'file_path') this.filePath});
+
+  factory _$_ImageItemModel.fromJson(Map<String, dynamic> json) =>
+      _$$_ImageItemModelFromJson(json);
+
+  @override
+  @JsonKey(name: 'file_path')
+  final String? filePath;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ImageItemModel(filePath: $filePath)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ImageItemModel'))
+      ..add(DiagnosticsProperty('filePath', filePath));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ImageItemModel &&
+            const DeepCollectionEquality().equals(other.filePath, filePath));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(filePath));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ImageItemModelCopyWith<_$_ImageItemModel> get copyWith =>
+      __$$_ImageItemModelCopyWithImpl<_$_ImageItemModel>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ImageItemModelToJson(this);
+  }
+}
+
+abstract class _ImageItemModel implements ImageItemModel {
+  const factory _ImageItemModel(
+      {@JsonKey(name: 'file_path') final String? filePath}) = _$_ImageItemModel;
+
+  factory _ImageItemModel.fromJson(Map<String, dynamic> json) =
+      _$_ImageItemModel.fromJson;
+
+  @override
+  @JsonKey(name: 'file_path')
+  String? get filePath;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ImageItemModelCopyWith<_$_ImageItemModel> get copyWith =>
+      throw _privateConstructorUsedError;
 }

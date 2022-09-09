@@ -17,6 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DetailState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isExpanded => throw _privateConstructorUsedError;
+  dynamic get mediaType => throw _privateConstructorUsedError;
+  int? get mediaId => throw _privateConstructorUsedError;
   DetailMovieResponseModel? get dataMovie => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -29,7 +32,12 @@ abstract class $DetailStateCopyWith<$Res> {
   factory $DetailStateCopyWith(
           DetailState value, $Res Function(DetailState) then) =
       _$DetailStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading, DetailMovieResponseModel? dataMovie});
+  $Res call(
+      {bool isLoading,
+      bool isExpanded,
+      dynamic mediaType,
+      int? mediaId,
+      DetailMovieResponseModel? dataMovie});
 
   $DetailMovieResponseModelCopyWith<$Res>? get dataMovie;
 }
@@ -45,6 +53,9 @@ class _$DetailStateCopyWithImpl<$Res> implements $DetailStateCopyWith<$Res> {
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? isExpanded = freezed,
+    Object? mediaType = freezed,
+    Object? mediaId = freezed,
     Object? dataMovie = freezed,
   }) {
     return _then(_value.copyWith(
@@ -52,6 +63,18 @@ class _$DetailStateCopyWithImpl<$Res> implements $DetailStateCopyWith<$Res> {
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isExpanded: isExpanded == freezed
+          ? _value.isExpanded
+          : isExpanded // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mediaType: mediaType == freezed
+          ? _value.mediaType
+          : mediaType // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      mediaId: mediaId == freezed
+          ? _value.mediaId
+          : mediaId // ignore: cast_nullable_to_non_nullable
+              as int?,
       dataMovie: dataMovie == freezed
           ? _value.dataMovie
           : dataMovie // ignore: cast_nullable_to_non_nullable
@@ -78,7 +101,12 @@ abstract class _$$_DetailStateCopyWith<$Res>
           _$_DetailState value, $Res Function(_$_DetailState) then) =
       __$$_DetailStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading, DetailMovieResponseModel? dataMovie});
+  $Res call(
+      {bool isLoading,
+      bool isExpanded,
+      dynamic mediaType,
+      int? mediaId,
+      DetailMovieResponseModel? dataMovie});
 
   @override
   $DetailMovieResponseModelCopyWith<$Res>? get dataMovie;
@@ -97,6 +125,9 @@ class __$$_DetailStateCopyWithImpl<$Res> extends _$DetailStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? isExpanded = freezed,
+    Object? mediaType = freezed,
+    Object? mediaId = freezed,
     Object? dataMovie = freezed,
   }) {
     return _then(_$_DetailState(
@@ -104,6 +135,15 @@ class __$$_DetailStateCopyWithImpl<$Res> extends _$DetailStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isExpanded: isExpanded == freezed
+          ? _value.isExpanded
+          : isExpanded // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mediaType: mediaType == freezed ? _value.mediaType : mediaType,
+      mediaId: mediaId == freezed
+          ? _value.mediaId
+          : mediaId // ignore: cast_nullable_to_non_nullable
+              as int?,
       dataMovie: dataMovie == freezed
           ? _value.dataMovie
           : dataMovie // ignore: cast_nullable_to_non_nullable
@@ -115,17 +155,31 @@ class __$$_DetailStateCopyWithImpl<$Res> extends _$DetailStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DetailState extends _DetailState {
-  const _$_DetailState({this.isLoading = true, this.dataMovie}) : super._();
+  const _$_DetailState(
+      {this.isLoading = true,
+      this.isExpanded = false,
+      this.mediaType = MediaType.movie,
+      this.mediaId,
+      this.dataMovie})
+      : super._();
 
   @override
   @JsonKey()
   final bool isLoading;
   @override
+  @JsonKey()
+  final bool isExpanded;
+  @override
+  @JsonKey()
+  final dynamic mediaType;
+  @override
+  final int? mediaId;
+  @override
   final DetailMovieResponseModel? dataMovie;
 
   @override
   String toString() {
-    return 'DetailState(isLoading: $isLoading, dataMovie: $dataMovie)';
+    return 'DetailState(isLoading: $isLoading, isExpanded: $isExpanded, mediaType: $mediaType, mediaId: $mediaId, dataMovie: $dataMovie)';
   }
 
   @override
@@ -134,6 +188,10 @@ class _$_DetailState extends _DetailState {
         (other.runtimeType == runtimeType &&
             other is _$_DetailState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.isExpanded, isExpanded) &&
+            const DeepCollectionEquality().equals(other.mediaType, mediaType) &&
+            const DeepCollectionEquality().equals(other.mediaId, mediaId) &&
             const DeepCollectionEquality().equals(other.dataMovie, dataMovie));
   }
 
@@ -141,6 +199,9 @@ class _$_DetailState extends _DetailState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(isExpanded),
+      const DeepCollectionEquality().hash(mediaType),
+      const DeepCollectionEquality().hash(mediaId),
       const DeepCollectionEquality().hash(dataMovie));
 
   @JsonKey(ignore: true)
@@ -152,11 +213,20 @@ class _$_DetailState extends _DetailState {
 abstract class _DetailState extends DetailState {
   const factory _DetailState(
       {final bool isLoading,
+      final bool isExpanded,
+      final dynamic mediaType,
+      final int? mediaId,
       final DetailMovieResponseModel? dataMovie}) = _$_DetailState;
   const _DetailState._() : super._();
 
   @override
   bool get isLoading;
+  @override
+  bool get isExpanded;
+  @override
+  dynamic get mediaType;
+  @override
+  int? get mediaId;
   @override
   DetailMovieResponseModel? get dataMovie;
   @override

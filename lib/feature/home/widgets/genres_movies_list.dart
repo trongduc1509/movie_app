@@ -112,15 +112,12 @@ class GenredMoviesListFrame extends StatelessWidget {
                                 color: Colors.white,
                               ),
                             ),
-                            errorWidget: (context, url, error) {
-                              log('dsufhsufdhs');
-                              return Container(
-                                decoration: const BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/img_not_found.jpg'))),
-                              );
-                            },
+                            errorWidget: (context, url, error) => Container(
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/images/img_not_found.jpg'))),
+                            ),
                           ),
                         ),
                         const SizedBox(height: 8.0),

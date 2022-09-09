@@ -16,6 +16,7 @@ class DetailRepoV1 extends DetailRepo {
       method: HTTPMethod.get,
       params: {
         'api_key': config.apiKey,
+        'append_to_response': 'videos,images',
       },
     );
 
